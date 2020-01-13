@@ -2,24 +2,24 @@
 using namespace std;
 
 int main() {
-    int numV, cost[250][250], cap[250][250];
+    int numV, Randcost[250][250], Randcap[250][250];
     srand(time(NULL));
     for (int j = 0; j < 250; ++j) {
         for (int i = 0; i < 250; ++i) {
-            cost[i][j] = -1;
-            cap[i][j] = -1;
+            Randcost[i][j] = -1;
+            Randcap[i][j] = -1;
         }
     }
     //choose number of Vertices
-    numV = (rand() % 70)+20;// v1 in the range 0 to 99
+    numV = (rand() % 90)+20;// v1 in the range 0 to 99
     for (int i = 0; i < numV ; ++i) {
         for (int j = 0; j < numV; ++j) {
             int fill = rand()%2;
             if(fill){
-                if(cost[j][i]==-1){
-                    cost[i][j] = rand() % 200;
+                if(Randcost[j][i]==-1){
+                    Randcost[i][j] = rand() % 200;
 //                    cout<<cost[i][j];
-                    cap[i][j] = rand()%200;
+                    Randcap[i][j] = rand()%200;
                 }
             }
         }
@@ -27,9 +27,9 @@ int main() {
     int m = 0;
     for (int k = 0; k <numV ; ++k) {
         for (int i = 0; i <numV ; ++i) {
-            if(cap[k][i]!=-1){
+            if(Randcap[k][i]!=-1){
                 m++;
-                cout<<k<<" "<<i<<" "<<cap[k][i]<<" "<<cost[k][i];
+                cout<<k<<" "<<i<<" "<<Randcap[k][i]<<" "<<Randcost[k][i];
                 cout.flush();
                 cout<<endl;
             }
